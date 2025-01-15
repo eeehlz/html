@@ -19,7 +19,7 @@ members[2] = {
 
 while (true) {
   let searchName = prompt("찾을 친구 이름 입력: ");
-  if (searchName == 'stop') {
+  if (searchName == '그만') {
     break;
   }
 
@@ -41,3 +41,6 @@ console.log('end of program');
 
 
 // (searchName != members[i]['member_name'])
+
+//break는 if 조건이 true일 때만 실행되고, 그렇지 않으면 else가 계속 실행됩니다.
+// true 실행 false 미실행
