@@ -23,13 +23,13 @@ while (true) {
     break;
   }
 
-  let exists = false;
+  let exists = false; //상태 추적용 변수
   for (let i = 0; i < members.length; i++) {
     //배열의 이름속성중에서 searchName과 같으면 포인트를 콘솔에 출력
     if (searchName == members[i].member_name) {
       console.log(`${searchName} 포인트는 ${members[i].point}`)
-      exists = true;
-      break;
+      exists = true; // true 인 상태에서 if 문을 들어가면 true -> false 로서 if문 진행X
+      break; // 어차피 break 라서 if문 진행안함. but if에 exists 넣어봤자 alert 실행 안됨.
     }
   }
   if (!exists) {
