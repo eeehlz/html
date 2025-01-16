@@ -44,3 +44,6 @@ console.log('end of program');
 
 //break는 if 조건이 true일 때만 실행되고, 그렇지 않으면 else가 계속 실행됩니다.
 // true 실행 false 미실행
+
+
+//git 푸시 테스트
