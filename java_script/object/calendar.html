@@ -8,11 +8,30 @@
 </head>
 
 <body>
-  년도: <input type="text" name="year" style="width: 30px;" value="2025">
-  월: <input type="number" name="month" style="width: 30px;" value="1"><button style="font-size: 11px;">📆</button>
+  년도: <input type="text" name="year" style="width: 30px; height: 20px; 
+  background-color: white; 
+  border-radius: 20%;" value="2025">
+  월: <input type="number" name="month" style="width: 30px; height: 20px; 
+  background-color: white; border-radius: 20%; " value="1">
+
+  <button style=" border-radius: 20%; 
+   font-size: 11px; height: 26px;   background-color: white;">📆</button>
   <div id="show"></div>
 
   <script>
+    //공휴일을 빨갛게 만들자! 숙제🎁🎁
+    let holydays = [{
+      month: 1,
+      days: [1, 2, 3]
+    }, {
+      month: 2,
+      days: [1, 10, 15]
+    }, {
+      month: 3,
+      days: [1, 10, 15]
+    }]
+
+
     document.querySelector('button').addEventListener("click", function () {
       let year = document.querySelector('input[name="year"]').value;
       let month = document.querySelector('input[name="month"]').value;
