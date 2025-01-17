@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  년도: <input type="text" name="year" style="width: 30px;" value="2025">
+  월: <input type="number" name="month" style="width: 30px;" value="1"><button style="font-size: 11px;">📆</button>
+  <div id="show"></div>
+
+  <script>
+    document.querySelector('button').addEventListener("click", function () {
+      let year = document.querySelector('input[name="year"]').value;
+      let month = document.querySelector('input[name="month"]').value;
+      makeCalendar(year, month);
+    });
+    makeCalendar();
+
+    function makeCalendar(year = 2025, month = 1) {
+      let now = new Date(); //2025, 1, 17
+      //년도, 월 지정
+      now.setFullYear(year);
+      now.setMonth(month - 1);
+      now.setDate(1);
+      let space = now.getDay(); //1일의 위치(공백) 계산.
+
+      now.setMonth(month);
+      now.setDate(0);
+      let lastDate = now.getDate(); //월의 말일 계산.
+
+      let days = ['일', '월', '화', '수', '목', '금', '토'];
+      let html = '';
+      html += '<table border="1">';
+      html += `<caption>${year}년${month}월</caption>`;
+      html += '<thead><tr>'
+      for (let day of days) {
+        html += `<th>${day}</th>`;
+      }
+
+      html += '</tr></thead>'
+      html += '<tbody id="list"><tr>'
+
+
+      for (let i = 0; i < space; i++) {
+        html += '<td></td>'
+      }
+
+      for (let i = 1; i <= lastDate; i++) {
+        if ((i + space) % 7 == 0) {
+          html += `<td style="background-color:blue; color:yellow">${i}</td>`
+        } else if ((i + space) % 7 == 1) {
+          html += `<td style="background-color:red; color:yellow">${i}</td>`;
+        } else {
+          html += `<td>${i}</td>`;
+        }
+
+        if ((i + space) % 7 == 0) {
+          html += `<tr></tr>`;
+        }
+      }
+
+      html += '</tr></tbody>'
+      html += '</table>';
+
+
+      document.querySelector("#show").innerHTML = html;
+
+    }
+  </script>
+</body>
+
+</html>
