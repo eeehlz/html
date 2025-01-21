@@ -36,7 +36,7 @@ function init() {
     });
   });
 
-} // end of init().
+} // end of init().ss
 
 function makeTrAry(mbr = []) {
   let tr = document.createElement('tr'); // td*3를 자식요소로 가질 부모.
@@ -86,4 +86,4 @@ function makeTr(mbr = {}) {
 
 
   return tr; // return; 
-} // end of makeTr().
+} // end of makeTr(). dasdasassadsa
