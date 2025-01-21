@@ -14,11 +14,12 @@
   월: <input type="number" name="month" style="width: 30px; height: 20px; 
   background-color: white; border-radius: 20%; " value="1">
 
-  <button style=" border-radius: 20%; 
+  <button style=" border-radius: 20%;
    font-size: 11px; height: 26px;   background-color: white;">📆</button>
   <div id="show"></div>
 
   <script>
+    console.log(document.querySelector('#show'));
     //공휴일을 빨갛게 만들자! 숙제🎁🎁
     let holydays = [{
       month: 1,
@@ -40,6 +41,18 @@
     makeCalendar();
 
     function makeCalendar(year = 2025, month = 1) {
+
+      let holyAry = holydays.filter(function (item, idx, ary) {
+        if (item.month == month) {
+          return true;
+        }
+        return false;
+      });
+      holyAry = [{
+        month: 1,
+        days: [1, 2, 3]
+      }];
+
       let now = new Date(); //2025, 1, 17
       //년도, 월 지정
       now.setFullYear(year);
@@ -69,7 +82,9 @@
       }
 
       for (let i = 1; i <= lastDate; i++) {
-        if ((i + space) % 7 == 0) {
+        if (holyAry.length > 0 && holyAry[0].days.indexOf(i) != -1) {
+          html += `<td style="background-color:pink; color:white">${i}</td>`
+        } else if ((i + space) % 7 == 0) {
           html += `<td style="background-color:blue; color:yellow">${i}</td>`
         } else if ((i + space) % 7 == 1) {
           html += `<td style="background-color:red; color:yellow">${i}</td>`;
